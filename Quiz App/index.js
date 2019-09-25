@@ -43,6 +43,7 @@ const quiz = [{
          proccessVal(val);
          getNextQuestion();
          renderTemplate(quiz);
+           console.log(score)
         //value will lead to the logic of checking if the anwser is correct 
         //getVal()
         //processVal()
@@ -62,7 +63,8 @@ const quiz = [{
      quiz[currentQuestion].choices[correctIndex]
 
   if (parsed === quiz[currentQuestion].answer ){
-      alert('Correct Choice') 
+      alert('Correct Choice');
+      updateScore();
   }
   else{
       alert(`The correct choice was: ${quiz[currentQuestion].choices[correctIndex]}`)
@@ -96,7 +98,10 @@ const quiz = [{
      currentQuestion++
  }
  // create a cap based on the length of questions given, consider what to do once the end of the questions length is reached (overview - reveal score + restart quiz)
- 
+ function updateScore(){
+     score++
+ }
+
  $(function(){ 
     renderTemplate(quiz); 
     createSubmitHandler();
