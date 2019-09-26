@@ -43,6 +43,12 @@ const quiz = [{
         <div>Welcome to the videogame knowledge quiz<br/>  
        <button id='startQuiz' type='submit'>Start the Quiz </button>
      </div>`)
+
+     $('#startQuiz').on('click', function () {
+         console.log('Active Click')
+        renderTemplate(quiz)
+        $('#quizContainer').hide()
+    });
  }
  
  function createSubmitHandler(){
@@ -115,7 +121,7 @@ const quiz = [{
 
  $(function(){ 
     renderQuizInitiator();
-    renderTemplate(quiz); 
+    // renderTemplate(quiz); 
     createSubmitHandler();
 
 });
