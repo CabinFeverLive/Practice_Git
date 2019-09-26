@@ -30,6 +30,7 @@ const quiz = [{
              template += `<input value='${index}' type='radio' name='answers' >${choice}<br />`
          })
          template += `<button id="finalAnswer" type='submit'>Final Answer</button></div>`
+         template += `<div> Your current score is : ${score} out of 5 </div>`
  
      $('#quiz').html(template)
  
@@ -94,6 +95,8 @@ const quiz = [{
  //     quiz[currentQuestion]
  // }
  
+
+
  function getNextQuestion(){
      currentQuestion++
  }
