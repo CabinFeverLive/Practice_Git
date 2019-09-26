@@ -30,14 +30,22 @@ const quiz = [{
  
          template += `<div>${quiz[currentQuestion].question}<br/>`
          quiz[currentQuestion].choices.forEach((choice, index) => {
-             template += `<input value='${index}' type='radio' name='answers' >${choice}<br />`
-         })
+            if (index == 0 || index == 2) {
+                template += `<input class 'choice left 'value='${index}' type='radio' name='answers' >${choice}</input><br/>`
+            }
+            
+            if (index == 1 || index == 3) {
+                template += `<input class 'choice right 'value='${index}' type='radio' name='answers' >${choice}</input><br/>`
+            }
+            });
          template += `<button id="finalAnswer" type='submit'>Final Answer</button></div>`
          template += `<div> Your current score is : ${score} out of 5 </div>`
  
      $('#quiz').html(template)
  
  }
+
+ 
 
  function renderQuizInitiator(){
      $('#quizContainer').html( `
@@ -145,7 +153,7 @@ const quiz = [{
          console.log('hey...arent you supposed to reset')
         $('#quiz').hide();
      $('#resultPage').html(`<section>Congratulations here is your ${score} out of 5!<br/>  
-         <button id='restartQuiz' type='submit'>Restart the Quiz </button>
+         <button id='restartQuiz' type='button'>Restart the Quiz </button>
        </section>`)
        $('#resultPage').show()
        restartHandler();
