@@ -40,15 +40,28 @@ const quiz = [{
 
  function renderQuizInitiator(){
      $('#quizContainer').html( `
-        <div>Welcome to the videogame knowledge quiz<br/>  
+        <section>Welcome to the videogame knowledge quiz<br/>  
        <button id='startQuiz' type='submit'>Start the Quiz </button>
-     </div>`)
+     </section>`)
 
      $('#startQuiz').on('click', function () {
          console.log('Active Click')
         renderTemplate(quiz)
         $('#quizContainer').hide()
     });
+ }
+
+ function quizRegulator(){
+     if (currentQuestion < quiz.length){
+        renderQuizInitiator();
+        renderTemplate(quiz);
+     }
+     else{
+         $('#quiz').hide();
+     $('#resultPage').html(`<section>Congratulations here is your ${score} out of 5!<br/>  
+         <button id='restartQuiz' type='submit'>restart the Quiz </button>
+       </section>`)
+     }
  }
  
  function createSubmitHandler(){
@@ -120,7 +133,8 @@ const quiz = [{
  }
 
  $(function(){ 
-    renderQuizInitiator();
+    quizRegulator();
+    // renderQuizInitiator();
     // renderTemplate(quiz); 
     createSubmitHandler();
 
