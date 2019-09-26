@@ -28,18 +28,18 @@ const quiz = [{
      console.log(currentQuestion)
     let template = ''
  
-         template += `<div>${quiz[currentQuestion].question}<br/>`
+         template += `<div class='quiz question'>${quiz[currentQuestion].question}</div>`
          quiz[currentQuestion].choices.forEach((choice, index) => {
             if (index == 0 || index == 2) {
-                template += `<input class='choice left' value='${index}' type='radio' name='answers' >${choice}</input><br/>`
+                template += `<div class='choice left'><input  value='${index}' type='radio' name='answers' >${choice}</input></div>`
             }
             
             if (index == 1 || index == 3) {
-                template += `<input class='choice right' value='${index}' type='radio' name='answers' >${choice}</input><br/>`
+                template += `<div class='choice right'><input  value='${index}' type='radio' name='answers' >${choice}</input></div>`
             }
             });
-         template += `<button id="finalAnswer" type='submit'>Final Answer</button></div>`
-         template += `<div> Your current score is : ${score} out of 5 </div>`
+         template += `<div class='finalAnswer'><button type='submit'>Final Answer</button></div>`
+         template += `<div class='quiz score'> Your current score is : ${score} out of 5 </div>`
  
      $('#quiz').html(template)
  
