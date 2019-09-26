@@ -25,7 +25,8 @@ const quiz = [{
  let score = 0 
  
  function renderTemplate(quiz) {
-     let template = ''
+     console.log(currentQuestion)
+    let template = ''
  
          template += `<div>${quiz[currentQuestion].question}<br/>`
          quiz[currentQuestion].choices.forEach((choice, index) => {
@@ -43,7 +44,8 @@ const quiz = [{
         <section>Welcome to the videogame knowledge quiz<br/>  
        <button id='startQuiz' type='submit'>Start the Quiz </button>
      </section>`)
-
+        $('#quizContainer, #quiz').show();
+        // $('#resultPage').hide();
      $('#startQuiz').on('click', function () {
          console.log('Active Click')
         renderTemplate(quiz)
@@ -54,13 +56,6 @@ const quiz = [{
  function quizRegulator(){
      if (currentQuestion < quiz.length){
         renderQuizInitiator();
-        renderTemplate(quiz);
-     }
-     else{
-         $('#quiz').hide();
-     $('#resultPage').html(`<section>Congratulations here is your ${score} out of 5!<br/>  
-         <button id='restartQuiz' type='submit'>restart the Quiz </button>
-       </section>`)
      }
  }
  
@@ -70,14 +65,31 @@ const quiz = [{
          const val = getVal();
          console.log(val);
          proccessVal(val);
-         getNextQuestion();
-         renderTemplate(quiz);
-           console.log(score)
+        //  getNextQuestion();
+        //  renderTemplate(quiz);
+        //    console.log(score)
         //value will lead to the logic of checking if the anwser is correct 
         //getVal()
         //processVal()
         //getNextQuestion() 
+        console.log('current question:', currentQuestion)
+        // if (currentQuestion <= quiz.length - 1){
+            getNextQuestion();
+            renderTemplate(quiz)
+            console.log(score)
+        // }
      });
+ }
+ 
+ function restartHandler(){
+     $('#restartQuiz').click(function(){
+         currentQuestion = 0
+         score = 0
+         $('#quiz').html('').hide()
+         $('#resultPage').html('').hide();
+         quizRegulator();
+
+     } );
  }
  
  function getVal(){
@@ -89,9 +101,9 @@ const quiz = [{
      var parsed = parseInt(val, 10);
      
      const correctIndex = quiz[currentQuestion].answer
-     quiz[currentQuestion].choices[correctIndex]
+    //  quiz[currentQuestion].choices[correctIndex]
 
-  if (parsed === quiz[currentQuestion].answer ){
+  if (parsed === correctIndex ){
       alert('Correct Choice');
       updateScore();
   }
@@ -125,7 +137,19 @@ const quiz = [{
 
 
  function getNextQuestion(){
-     currentQuestion++
+    
+     if(currentQuestion < quiz.length - 1){
+         currentQuestion++
+     }
+     else{
+         console.log('hey...arent you supposed to reset')
+        $('#quiz').hide();
+     $('#resultPage').html(`<section>Congratulations here is your ${score} out of 5!<br/>  
+         <button id='restartQuiz' type='submit'>Restart the Quiz </button>
+       </section>`)
+       $('#resultPage').show()
+       restartHandler();
+     }
  }
  // create a cap based on the length of questions given, consider what to do once the end of the questions length is reached (overview - reveal score + restart quiz)
  function updateScore(){
