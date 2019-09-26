@@ -19,7 +19,7 @@ text-align: center;
 }
 
 .choice{
-    
+
 }
 
 .choice.left{
@@ -30,7 +30,9 @@ text-align: center;
 
 }
 
-#finalanswer{}
+#finalanswer{
+    
+}
 
 
 #quizContainer{
