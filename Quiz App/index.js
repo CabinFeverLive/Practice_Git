@@ -21,6 +21,8 @@ const quiz = [{
      answer: 1
  }
  ]
+ let currentQuestion = 0
+ let score = 0 
  
  function renderTemplate(quiz) {
      let template = ''
@@ -34,6 +36,13 @@ const quiz = [{
  
      $('#quiz').html(template)
  
+ }
+
+ function renderQuizInitiator(){
+     $('#quizContainer').html( `
+        <div>Welcome to the videogame knowledge quiz<br/>  
+       <button id='startQuiz' type='submit'>Start the Quiz </button>
+     </div>`)
  }
  
  function createSubmitHandler(){
@@ -88,8 +97,7 @@ const quiz = [{
  //     $('#quiz').html(template)
  
  // }
- let currentQuestion = 0
- let score = 0 
+
  // function getQuestionOnebyOne(){
  //     const currentQuestion = 0
  //     quiz[currentQuestion]
@@ -106,6 +114,7 @@ const quiz = [{
  }
 
  $(function(){ 
+    renderQuizInitiator();
     renderTemplate(quiz); 
     createSubmitHandler();
 
