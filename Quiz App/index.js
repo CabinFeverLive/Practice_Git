@@ -31,11 +31,11 @@ const quiz = [{
          template += `<div>${quiz[currentQuestion].question}<br/>`
          quiz[currentQuestion].choices.forEach((choice, index) => {
             if (index == 0 || index == 2) {
-                template += `<input class 'choice left 'value='${index}' type='radio' name='answers' >${choice}</input><br/>`
+                template += `<input class='choice left' value='${index}' type='radio' name='answers' >${choice}</input><br/>`
             }
             
             if (index == 1 || index == 3) {
-                template += `<input class 'choice right 'value='${index}' type='radio' name='answers' >${choice}</input><br/>`
+                template += `<input class='choice right' value='${index}' type='radio' name='answers' >${choice}</input><br/>`
             }
             });
          template += `<button id="finalAnswer" type='submit'>Final Answer</button></div>`
