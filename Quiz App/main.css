@@ -6,11 +6,11 @@ body{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-/* #vgHeader{
-
+header{
+text-align: center;
 }
 
-#vgQuestions{
+/* #vgQuestions{
 
 }
 
@@ -19,6 +19,10 @@ body{
 }
 
 #quizContainer{
+
+}
+
+#quizContainer, button{
 
 }
 
