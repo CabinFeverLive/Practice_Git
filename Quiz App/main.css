@@ -10,12 +10,14 @@ header{
 text-align: center;
 }
 
+
 #vgQuestions{
 
 }
 
 #quiz{
     text-align: center;
+    
 
 }
 
@@ -28,6 +30,15 @@ text-align: center;
     display:inline-block;
     float: left;
     width: 50%;
+    border: 1px solid blue;
+    border-radius: 10000px;
+    
+}
+
+.choices{
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
 }
 
 .choice.left{
