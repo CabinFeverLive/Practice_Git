@@ -17,7 +17,8 @@ text-align: center;
 
 #quiz{
     text-align: center;
-    
+    background: #97c4d2;
+    border-radius: 14px;
 
 }
 
@@ -26,10 +27,15 @@ text-align: center;
     text-align: center;
 }
 
+.quiz.score{
+    text-transform: uppercase;
+    color: #fff;
+}
+
 .choice{
     display:inline-block;
     float: left;
-    width: 50%;
+    width: calc(50%-4px);
     border: 1px solid blue;
     border-radius: 100px;
     color: #fff;
@@ -41,7 +47,7 @@ text-align: center;
     border: none;
     transition: all 0.4s ease 0s;
     font-size: 16px;
-    
+    margin: 2px 2px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
@@ -53,12 +59,17 @@ text-align: center;
     background-color: rgb(150, 202, 236);
     color: white;
   }
+
+.choices:checked+label{
+    background-color: rgb(150, 202, 236);
+    color: white;
+}
   
 
 .choices{
-    opacity: 0;
     position: absolute;
-    pointer-events: none;
+    visibility: hidden;
+    
     
 }
 
@@ -70,13 +81,27 @@ text-align: center;
 
 }
 
-#finalanswer{
+.finalAnswer{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 12px;
     
 }
 
 
 #quizContainer{
     text-align: center;
+    text-transform: uppercase;
 }
 
 #quizContainer, button{
