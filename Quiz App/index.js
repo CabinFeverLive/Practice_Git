@@ -152,7 +152,7 @@ const quiz = [{
      else{
          console.log('hey...arent you supposed to reset')
         $('#quiz').hide();
-     $('#resultPage').html(`<section>Congratulations here is your ${score} out of 5!<br/>  
+     $('#resultPage').html(`<section>Congratulations! here is your score: ${score} out of 5!<br/>  
          <button id='restartQuiz' type='button'>Restart the Quiz </button>
        </section>`)
        $('#resultPage').show()

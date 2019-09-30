@@ -35,14 +35,14 @@ text-align: center;
 .choice{
     display:inline-block;
     float: left;
-    width: calc(50%-4px);
+    width: calc(50% - 4px);
     border: 1px solid blue;
     border-radius: 100px;
     color: #fff;
     text-transform: uppercase;
     text-decoration: none;
     background: #778b92;
-    padding: 20px;
+    padding: 5px;
     border-radius: 50px;
     border: none;
     transition: all 0.4s ease 0s;
@@ -102,10 +102,6 @@ text-align: center;
 #quizContainer{
     text-align: center;
     text-transform: uppercase;
-}
-
-#quizContainer, button{
-
 }
 
 #resultPage{
